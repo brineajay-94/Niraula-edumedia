@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Niraula EduMedia | Online Education & Coaching</title>
+
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    <!-- Keep the original fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        :root {
+            --primary: #1a3c6d;
+            --primary-light: #2c5aa0;
+            --accent: #c8a44e;
+            --accent-light: #e0c878;
+
+            --white: #ffffff;
+            --off-white: #f8f7f4;
+
+            --text: #2d2d2d;
+            --text-light: #5a5a5a;
+
+            --gray-light: #e8e6e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background: var(--off-white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================
+           HEADER
+           VERY SLIM
+        ===================================== */
+
+        header {
+            background: var(--white);
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+
+            height: 58px;
+
+            padding: 4px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+
+        /* BRAND
+           Niraula = normal
+           EduMedia = small below
+        */
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            line-height: 1;
+        }
+
+        .brand-main {
+            font-family: 'Playfair Display', serif;
+
+            color: var(--primary);
+
+            font-size: 1.18rem;
+            font-weight: 700;
+
+            line-height: 1;
+        }
+
+        .brand-sub {
+            color: var(--accent);
+
+            font-size: 0.58rem;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-top: 4px;
+        }
+
+
+        /* LOGIN / REGISTER */
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .header-button {
+            height: 31px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 12px;
+
+            border-radius: 2px;
+
+            font-size: 0.72rem;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .login {
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            background: var(--white);
+        }
+
+        .login:hover {
+            color: var(--white);
+            background: var(--primary);
+        }
+
+        .register {
+            color: var(--white);
+            background: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .register:hover {
+            background: var(--primary-light);
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            padding: 18px 18px 0;
+        }
+
+        .slider {
+            max-width: 1200px;
+            height: 480px;
+
+            margin: auto;
+
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 3px;
+
+            background: var(--primary);
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(15, 37, 67, 0.82),
+                    rgba(15, 37, 67, 0.48),
+                    rgba(15, 37, 67, 0.08)
+                );
+        }
+
+        .hero-content {
+            max-width: 650px;
+            padding: 40px 50px;
+
+            color: var(--white);
+        }
+
+        .hero-small {
+            color: var(--accent-light);
+
+            font-size: 0.78rem;
+            font-weight: 600;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            max-width: 580px;
+
+            color: #f1f1f1;
+
+            font-size: 0.95rem;
+
+            margin-bottom: 22px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            background: var(--accent);
+            color: #172c48;
+
+            padding: 10px 19px;
+
+            border-radius: 2px;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            background: var(--accent-light);
+        }
+
+
+        /* =====================================
+           GENERAL SECTION
+        ===================================== */
+
+        .section {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 65px 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 38px;
+        }
+
+        .section-label {
+            color: var(--accent);
+
+            font-size: 0.72rem;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+
+            color: var(--primary);
+
+            font-size: 2.3rem;
+
+            margin: 5px 0 10px;
+        }
+
+        .section-heading p {
+            color: var(--text-light);
+
+            max-width: 650px;
+
+            margin: auto;
+
+            font-size: 0.88rem;
+        }
+
+
+        /* =====================================
+           ABOUT
+        ===================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 45px;
+
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+
+            color: var(--primary);
+
+            font-size: 1.7rem;
+
+            margin-bottom: 14px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+
+            font-size: 0.88rem;
+
+            margin-bottom: 12px;
+        }
+
+        .about-list {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--primary);
+
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .about-item i {
+            color: var(--accent);
+        }
+
+        .about-box {
+            background: var(--primary);
+
+            color: var(--white);
+
+            padding: 32px;
+
+            border-left: 4px solid var(--accent);
+        }
+
+        .about-box h3 {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.55rem;
+
+            margin-bottom: 13px;
+        }
+
+        .about-box p {
+            color: #e5e9ef;
+
+            font-size: 0.84rem;
+        }
+
+
+        /* =====================================
+           COURSES
+        ===================================== */
+
+        .courses-section {
+            background: var(--white);
+        }
+
+        .courses-inner {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 65px 25px;
+        }
+
+        .course-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .course-card {
+            background: var(--white);
+
+            border: 1px solid var(--gray-light);
+
+            border-top: 3px solid var(--primary);
+
+            padding: 24px;
+
+            transition: 0.2s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+
+            border-top-color: var(--accent);
+        }
+
+        .course-icon {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eef2f7;
+
+            color: var(--primary);
+
+            margin-bottom: 15px;
+        }
+
+        .course-icon i {
+            font-size: 1.1rem;
+        }
+
+        .course-card h3 {
+            font-family: 'Playfair Display', serif;
+
+            color: var(--primary);
+
+            font-size: 1.18rem;
+
+            margin-bottom: 8px;
+        }
+
+        .course-card p {
+            color: var(--text-light);
+
+            font-size: 0.8rem;
+
+            margin-bottom: 14px;
+        }
+
+        .course-link {
+            color: var(--primary);
+
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .course-link i {
+            color: var(--accent);
+
+            margin-left: 3px;
+        }
+
+
+        /* =====================================
+           FEATURES
+        ===================================== */
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .feature {
+            background: var(--white);
+
+            border: 1px solid var(--gray-light);
+
+            padding: 24px 15px;
+
+            text-align: center;
+        }
+
+        .feature i {
+            color: var(--accent);
+
+            font-size: 1.6rem;
+
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            color: var(--primary);
+
+            font-size: 0.9rem;
+
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: var(--text-light);
+
+            font-size: 0.75rem;
+        }
+
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .cta {
+            max-width: 1150px;
+
+            margin: 0 auto 65px;
+
+            padding: 42px 25px;
+
+            background: var(--primary);
+
+            color: var(--white);
+
+            text-align: center;
+
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 2rem;
+
+            margin-bottom: 8px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: auto auto 20px;
+
+            color: #e1e6ed;
+
+            font-size: 0.82rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: var(--accent);
+
+            color: #172c48;
+
+            padding: 10px 20px;
+
+            font-size: 0.78rem;
+            font-weight: 700;
+
+            border-radius: 2px;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: #102b4d;
+
+            color: var(--white);
+
+            padding: 35px 25px 18px;
+        }
+
+        .footer-inner {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.35rem;
+        }
+
+        .footer-brand span {
+            color: var(--accent-light);
+
+            font-size: 0.62rem;
+
+            letter-spacing: 2px;
+        }
+
+        .footer-brand p {
+            color: #c8d1dc;
+
+            font-size: 0.76rem;
+
+            max-width: 350px;
+
+            margin-top: 9px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-light);
+
+            font-size: 0.82rem;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            display: block;
+
+            color: #d1d9e3;
+
+            font-size: 0.74rem;
+
+            margin-bottom: 6px;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-light);
+        }
+
+        .copyright {
+            max-width: 1150px;
+
+            margin: 22px auto 0;
+
+            padding-top: 14px;
+
+            border-top: 1px solid rgba(255,255,255,0.14);
+
+            text-align: center;
+
+            color: #aeb9c7;
+
+            font-size: 0.68rem;
+        }
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                height: 54px;
+
+                padding: 4px 12px;
+            }
+
+            .logo {
+                gap: 7px;
+            }
+
+            .logo img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .brand-main {
+                font-size: 1rem;
+            }
+
+            .brand-sub {
+                font-size: 0.5rem;
+
+                letter-spacing: 1.6px;
+
+                margin-top: 3px;
+            }
+
+            .header-button {
+                height: 29px;
+
+                padding: 0 8px;
+
+                font-size: 0.66rem;
+            }
+
+            .header-buttons {
+                gap: 5px;
+            }
+
+
+            .hero {
+                padding: 10px 10px 0;
+            }
+
+            .slider {
+                height: 72vw;
+
+                min-height: 270px;
+                max-height: 450px;
+            }
+
+            .hero-content {
+                padding: 25px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.8rem;
+            }
+
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .header-inner {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .logo img {
+                width: 33px;
+                height: 33px;
+            }
+
+            .brand-main {
+                font-size: 0.92rem;
+            }
+
+            .brand-sub {
+                font-size: 0.46rem;
+
+                letter-spacing: 1.4px;
+            }
+
+            .header-button {
+                padding: 0 7px;
+
+                font-size: 0.62rem;
+            }
+
+            .slider {
+                height: 76vw;
+
+                min-height: 270px;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-content p {
+                font-size: 0.76rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 50px 18px;
+            }
+
+            .courses-inner {
+                padding: 50px 18px;
+            }
+
+            .about-list {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+
+            <img src="/assets/logo.png"
+                 alt="Niraula EduMedia">
+
+            <div class="brand">
+
+                <span class="brand-main">
+                    Niraula
+                </span>
+
+                <span class="brand-sub">
+                    EduMedia
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="header-buttons">
+
+            <a href="login.html"
+               class="header-button login">
+                Login
+            </a>
+
+            <a href="register.html"
+               class="header-button register">
+                Register
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================
+     HERO
+     ONLY SLIDER 1
+===================================== -->
+
+<section class="hero">
+
+    <div class="slider">
+
+        <div class="slide">
+
+            <img src="/assets/slider1.png"
+                 alt="Niraula EduMedia">
+
+            <div class="slide-overlay">
+
+                <div class="hero-content">
+
+                    <div class="hero-small">
+                        Niraula EduMedia
+                    </div>
+
+                    <h1>
+                        Learn. Prepare. Succeed.
+                    </h1>
+
+                    <p>
+                        Quality online education, coaching and
+                        preparation programs designed to help
+                        students and aspirants achieve their goals.
+                    </p>
+
+                    <a href="#courses"
+                       class="hero-button">
+                        Explore Courses
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     ABOUT
+===================================== -->
+
+<section class="section" id="about">
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            About Us
+        </div>
+
+        <h2>
+            Welcome to Niraula EduMedia
+        </h2>
+
+        <p>
+            A learning platform for academic education,
+            competitive examinations and professional preparation.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <h3>
+                Education for Your Future
+            </h3>
+
+            <p>
+                Niraula EduMedia provides accessible and
+                structured learning programs for students,
+                exam aspirants and learners.
+            </p>
+
+            <p>
+                Our programs include Loksewa preparation,
+                banking preparation, online home tuition,
+                academic classes and other learning opportunities.
+            </p>
+
+
+            <div class="about-list">
+
+                <div class="about-item">
+                    <i class="fa-solid fa-check"></i>
+                    Online Learning
+                </div>
+
+                <div class="about-item">
+                    <i class="fa-solid fa-check"></i>
+                    Experienced Teachers
+                </div>
+
+                <div class="about-item">
+                    <i class="fa-solid fa-check"></i>
+                    Flexible Classes
+                </div>
+
+                <div class="about-item">
+                    <i class="fa-solid fa-check"></i>
+                    Study Resources
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>
+                Learn From Anywhere
+            </h3>
+
+            <p>
+                Study from the comfort of your home with
+                flexible online classes and structured
+                preparation programs.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     COURSES
+===================================== -->
+
+<section class="courses-section"
+         id="courses">
+
+    <div class="courses-inner">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Our Programs
+            </div>
+
+            <h2>
+                Courses & Classes
+            </h2>
+
+            <p>
+                Choose a learning program according to
+                your educational and career goals.
+            </p>
+
+        </div>
+
+
+        <div class="course-grid">
+
+
+            <!-- COURSE 1 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+
+                <h3>
+                    Loksewa Preparation Class
+                </h3>
+
+                <p>
+                    Structured preparation classes for
+                    Loksewa examinations with focused
+                    study and practice.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COURSE 2 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+
+                <h3>
+                    Banking Preparation Class
+                </h3>
+
+                <p>
+                    Prepare for banking examinations
+                    through organized classes and
+                    practice-oriented learning.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COURSE 3 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-house-user"></i>
+                </div>
+
+                <h3>
+                    Online Home Tuition
+                </h3>
+
+                <p>
+                    Personalized online tuition designed
+                    according to individual learning
+                    requirements.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COURSE 4 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <h3>
+                    SEE & +2 Classes
+                </h3>
+
+                <p>
+                    Academic support and preparation
+                    programs for school and +2 students.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COURSE 5 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <h3>
+                    Entrance Preparation
+                </h3>
+
+                <p>
+                    Focused preparation for entrance
+                    examinations with useful practice.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- COURSE 6 -->
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    <i class="fa-solid fa-computer"></i>
+                </div>
+
+                <h3>
+                    Computer & IT Classes
+                </h3>
+
+                <p>
+                    Practical computer and technology
+                    learning for students and beginners.
+                </p>
+
+                <a href="courses.html"
+                   class="course-link">
+                    Learn More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEATURES
+===================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            Why Choose Us
+        </div>
+
+        <h2>
+            A Better Way to Learn
+        </h2>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <i class="fa-solid fa-laptop"></i>
+
+            <h3>
+                Online Learning
+            </h3>
+
+            <p>
+                Learn conveniently from anywhere.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-chalkboard-user"></i>
+
+            <h3>
+                Experienced Teachers
+            </h3>
+
+            <p>
+                Structured and guided instruction.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h3>
+                Flexible Classes
+            </h3>
+
+            <p>
+                Learning designed around your schedule.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            <h3>
+                Study Resources
+            </h3>
+
+            <p>
+                Useful resources for better preparation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CTA
+===================================== -->
+
+<section class="cta">
+
+    <h2>
+        Start Your Learning Journey
+    </h2>
+
+    <p>
+        Join Niraula EduMedia and take the next step
+        toward your academic and professional goals.
+    </p>
+
+    <a href="register.html"
+       class="cta-button">
+        Register Now
+    </a>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                Niraula EduMedia
+            </h2>
+
+            <span>
+                ONLINE EDUCATION & COACHING
+            </span>
+
+            <p>
+                Quality learning opportunities for students,
+                competitive exam aspirants and learners.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#courses">
+                Courses
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Programs
+            </h3>
+
+            <a href="courses.html">
+                Loksewa Preparation
+            </a>
+
+            <a href="courses.html">
+                Banking Preparation
+            </a>
+
+            <a href="courses.html">
+                Online Home Tuition
+            </a>
+
+            <a href="courses.html">
+                Academic Classes
+            </a>
+
+            <a href="courses.html">
+                Entrance Preparation
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Niraula EduMedia. All rights reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>
